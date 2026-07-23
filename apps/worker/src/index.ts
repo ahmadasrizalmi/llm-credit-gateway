@@ -92,7 +92,7 @@ app.get('/admin/users/:id/ledger', async (c) => c.json((await c.env.DB.prepare('
 app.get('/admin/users/:id/keys', async (c) => c.json((await c.env.DB.prepare('SELECT id,name,key_prefix,status,last_used_at,expires_at,created_at FROM api_keys WHERE user_id=? ORDER BY created_at DESC').bind(c.req.param('id')).all()).results));
 app.post('/admin/users/:id/keys', async (c) => {
   const body = z.object({ name: z.string().default('Default key'), expiresAt: z.string().datetime().nullable().optional() }).parse(await c.req.json().catch(() => ({})));
-  const user = await c.env.DB.prepare('SELECT id,organization_id FROM users WHERE id=?').bind(c.req.param('id')) as any; if (!user) return c.json({ error: 'Not found' }, 404);
+  const user = await c.env.DB.prepare('SELECT id,organization_id FROM users WHERE id=?').bind(c.req.param('id')).first() as any; if (!user) return c.json({ error: 'Not found' }, 404);
   const raw = createApiKey(); await c.env.DB.prepare(`INSERT INTO api_keys (id,organization_id,user_id,name,key_prefix,key_hash,status,expires_at,created_at) VALUES (?,?,?,?,?,?,'active',?,?)`).bind(id('key'), user.organization_id, user.id, body.name, raw.slice(0, 18), await sha256(raw), body.expiresAt ?? null, nowIso()).run();
   return c.json({ apiKey: raw, warning: 'This key is shown only once.' }, 201);
 });
