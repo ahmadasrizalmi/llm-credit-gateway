@@ -5,7 +5,7 @@
   "compatibility_date": "2026-07-22",
   "observability": { "enabled": true },
   "vars": {
-    "CORS_ORIGINS": "http://localhost:5173,https://llm-credit-gateway-dashboard.pondokmultimediamunzalan.workers.dev",
+    "CORS_ORIGINS": "http://localhost:5173,https://tokenroute.pondokmultimediamunzalan.workers.dev",
     "DEFAULT_ORG_ID": "org_default"
   },
   "d1_databases": [
