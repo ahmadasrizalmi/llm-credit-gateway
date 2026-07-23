@@ -1,0 +1,23 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "llm-credit-gateway-api",
+  "main": "src/index.ts",
+  "compatibility_date": "2026-07-22",
+  "observability": { "enabled": true },
+  "vars": {
+    "CORS_ORIGINS": "http://localhost:5173",
+    "DEFAULT_ORG_ID": "org_default"
+  },
+  "secrets": ["ADMIN_TOKEN", "SESSION_SECRET", "DEEPSEEK_API_KEY"],
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_name": "llm-credit-gateway",
+      "database_id": "REPLACE_WITH_D1_DATABASE_ID",
+      "migrations_dir": "migrations"
+    }
+  ],
+  "triggers": {
+    "crons": ["*/15 * * * *"]
+  }
+}

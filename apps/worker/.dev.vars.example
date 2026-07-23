@@ -1,0 +1,3 @@
+ADMIN_TOKEN=change-me-admin-token
+SESSION_SECRET=change-me-session-secret
+DEEPSEEK_API_KEY=your-provider-api-key
