@@ -1,6 +1,6 @@
 {
   "$schema": "node_modules/wrangler/config-schema.json",
-  "name": "llm-credit-gateway-api",
+  "name": "aipmmi",
   "main": "src/index.ts",
   "compatibility_date": "2026-07-22",
   "observability": { "enabled": true },
