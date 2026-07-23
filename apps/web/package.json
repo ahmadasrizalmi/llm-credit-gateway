@@ -2,7 +2,25 @@
   "name": "@llm-gateway/web",
   "private": true,
   "type": "module",
-  "scripts": {"dev":"vite","build":"tsc -b && vite build","typecheck":"tsc --noEmit"},
-  "dependencies": {"@vitejs/plugin-react":"^4.6.0","vite":"^7.0.5","typescript":"^5.8.3","react":"^19.1.0","react-dom":"^19.1.0","lucide-react":"^0.525.0"},
-  "devDependencies": {"@types/react":"^19.1.8","@types/react-dom":"^19.1.6"}
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc -b && vite build",
+    "typecheck": "tsc --noEmit",
+    "deploy": "npm run build && wrangler deploy",
+    "preview": "npm run build && wrangler dev"
+  },
+  "dependencies": {
+    "@vitejs/plugin-react": "^4.6.0",
+    "lucide-react": "^0.525.0",
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0",
+    "typescript": "^5.8.3",
+    "vite": "^7.0.5"
+  },
+  "devDependencies": {
+    "@cloudflare/vite-plugin": "^1.46.0",
+    "@types/react": "^19.1.8",
+    "@types/react-dom": "^19.1.6",
+    "wrangler": "^4.113.0"
+  }
 }

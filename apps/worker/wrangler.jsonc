@@ -5,15 +5,14 @@
   "compatibility_date": "2026-07-22",
   "observability": { "enabled": true },
   "vars": {
-    "CORS_ORIGINS": "http://localhost:5173",
+    "CORS_ORIGINS": "http://localhost:5173,https://llm-credit-gateway-dashboard.pondokmultimediamunzalan.workers.dev",
     "DEFAULT_ORG_ID": "org_default"
   },
-  "secrets": ["ADMIN_TOKEN", "SESSION_SECRET", "DEEPSEEK_API_KEY"],
   "d1_databases": [
     {
       "binding": "DB",
       "database_name": "llm-credit-gateway",
-      "database_id": "REPLACE_WITH_D1_DATABASE_ID",
+      "database_id": "903cfa92-c303-4aac-b6f2-68a43ba126ac",
       "migrations_dir": "migrations"
     }
   ],
